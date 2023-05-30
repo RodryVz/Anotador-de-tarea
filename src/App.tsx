@@ -1,13 +1,9 @@
 import { useState } from 'react';
+import { Tasks } from './interfaces/Task';
+import { TaskList } from './components/TaskList';
+import { TaskForm } from './components/TaskForm';
 
 
-
-interface Tasks {
-  id: number,
-  title: string,
-  description: string,
-  completed: boolean,
-}
 
 export function App() {
   const [tasks, setTasks] = useState<Tasks[]>([
@@ -21,7 +17,7 @@ export function App() {
   ])
 
   return (
-    <div className='bg-dark' style={{height:"100vh"}}>
+    <div className=' navbar-dark' style={{ height: "100vh" }}>
       <nav className='navbar navbar-dark bg-primary'>
         <div className='container'>
           <a href="/" className='navbar-brand'>
@@ -31,12 +27,17 @@ export function App() {
         </div>
       </nav>
 
-      <main>
-        {tasks.map(task => (
-          <div>
-            <h2>{task.title}</h2>
+      <main className='container p-4'>
+        <div className='row'>
+          <div className='col-md-4'>
+            <TaskForm/>
           </div>
-        ))}
+          <div className='col-md-8'>
+            <div className='row'>
+              <TaskList tasks={tasks} />
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   )
