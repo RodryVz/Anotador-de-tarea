@@ -7,8 +7,8 @@ export function App() {
   const [tasks, setTasks] = useState<Tasks[]>([
     {
       id: 1,
-      title: "hola",
-      description: "rodri",
+      title: "",
+      description: "",
       completed: false,
     }
   ]);
